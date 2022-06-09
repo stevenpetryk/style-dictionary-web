@@ -1,13 +1,22 @@
-import { fs, vol } from "memfs"
+import { vol } from "memfs"
 
 import { baseStyleDictionary } from "./styleDictionary"
 
+import "./tokens/light_variables.css"
+import "./tokens/dark_variables.css"
+import "./tokens/amoled_variables.css"
+
 window.addEventListener("load", () => {
-  fs.mkdirSync("tmp")
+  baseStyleDictionary.buildAllPlatforms()
 
-  document.getElementById("button")?.addEventListener("click", () => {
-    baseStyleDictionary.buildPlatform("css")
+  const allFiles = vol.toJSON()
 
-    console.log("test", vol.toJSON())
-  })
+  const contents = Object.values(allFiles).join("\n\n")
+
+  updateStylesheet(contents)
 })
+
+function updateStylesheet(contents: string) {
+  const styleTag = document.getElementById("live-styles")!
+  styleTag.innerText = contents
+}
