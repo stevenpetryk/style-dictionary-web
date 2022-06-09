@@ -1,0 +1,29 @@
+diff --git a/node_modules/json5/lib/register.js b/node_modules/json5/lib/register.js
+index 935cdba..de9bf34 100644
+--- a/node_modules/json5/lib/register.js
++++ b/node_modules/json5/lib/register.js
+@@ -1,13 +1,13 @@
+-const fs = require('fs')
+-const JSON5 = require('./')
++// const fs = require('fs')
++// const JSON5 = require('./')
+ 
+ // eslint-disable-next-line node/no-deprecated-api
+-require.extensions['.json5'] = function (module, filename) {
+-    const content = fs.readFileSync(filename, 'utf8')
+-    try {
+-        module.exports = JSON5.parse(content)
+-    } catch (err) {
+-        err.message = filename + ': ' + err.message
+-        throw err
+-    }
+-}
++// require.extensions['.json5'] = function (module, filename) {
++//     const content = fs.readFileSync(filename, 'utf8')
++//     try {
++//         module.exports = JSON5.parse(content)
++//     } catch (err) {
++//         err.message = filename + ': ' + err.message
++//         throw err
++//     }
++// }

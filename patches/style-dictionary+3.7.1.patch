@@ -1,0 +1,61 @@
+diff --git a/node_modules/style-dictionary/index.js b/node_modules/style-dictionary/index.js
+index 14ec78a..3ce3476 100644
+--- a/node_modules/style-dictionary/index.js
++++ b/node_modules/style-dictionary/index.js
+@@ -16,6 +16,13 @@ var TEMPLATE_DEPRECATION_WARNINGS = GroupMessages.GROUP.TemplateDeprecationWarni
+ var REGISTER_TEMPLATE_DEPRECATION_WARNINGS = GroupMessages.GROUP.RegisterTemplateDeprecationWarnings;
+ var SASS_MAP_FORMAT_DEPRECATION_WARNINGS = GroupMessages.GROUP.SassMapFormatDeprecationWarnings;
+ 
++let polyfilledProcess
++if (typeof process === 'undefined') {
++  polyfilledProcess = require('process');
++} else {
++  polyfilledProcess = process
++}
++
+ /**
+  * Style Dictionary module
+  *
+@@ -68,7 +75,7 @@ var StyleDictionary = {
+ 
+ module.exports = StyleDictionary;
+ 
+-process.on('exit', function () {
++polyfilledProcess.on('exit', function () {
+   if(GroupMessages.count(TEMPLATE_DEPRECATION_WARNINGS) > 0) {
+     var template_warnings = GroupMessages.flush(TEMPLATE_DEPRECATION_WARNINGS).join('\n  ');
+     console.log(chalk.bold.yellow(`
+diff --git a/node_modules/style-dictionary/lib/extend.js b/node_modules/style-dictionary/lib/extend.js
+index 0a8ed7a..a46f459 100644
+--- a/node_modules/style-dictionary/lib/extend.js
++++ b/node_modules/style-dictionary/lib/extend.js
+@@ -11,8 +11,10 @@
+  * and limitations under the License.
+  */
+ 
+-require('json5/lib/register');
+-require.extensions[".jsonc"] = require("./utils/jsonc").register;
++if (typeof require !== 'undefined' && require.extensions) {
++  require('json5/lib/register');
++  require.extensions[".jsonc"] = require("./utils/jsonc").register;
++}
+ 
+ var combineJSON = require('./utils/combineJSON'),
+     deepExtend = require('./utils/deepExtend'),
+diff --git a/node_modules/style-dictionary/lib/utils/combineJSON.js b/node_modules/style-dictionary/lib/utils/combineJSON.js
+index 1b7329e..a319002 100644
+--- a/node_modules/style-dictionary/lib/utils/combineJSON.js
++++ b/node_modules/style-dictionary/lib/utils/combineJSON.js
+@@ -11,8 +11,10 @@
+  * and limitations under the License.
+  */
+ 
+-require('json5/lib/register');
+-require.extensions[".jsonc"] = require("./jsonc").register;
++if (typeof require !== 'undefined' && require.extensions) {
++  require('json5/lib/register');
++  require.extensions[".jsonc"] = require("./jsonc").register;
++}
+ 
+ var glob = require('glob'),
+   deepExtend = require('./deepExtend'),

@@ -1,0 +1,48 @@
+{
+  "name": "style-dictionary-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "memfs": "^3.4.4",
+    "query-string": "^7.1.1",
+    "style-dictionary": "^3.7.1"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "constants-browserify": "^1.0.0",
+    "events": "^3.3.0",
+    "parcel": "^2.6.0",
+    "patch-package": "^6.4.7",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3",
+    "url": "^0.11.0",
+    "util": "^0.12.4"
+  },
+  "alias": {
+    "assert": "assert",
+    "buffer": "buffer",
+    "constants": "constants-browserify",
+    "events": "events",
+    "fs": "memfs",
+    "path": "path-browserify",
+    "process": "process/browser",
+    "stream": "stream-browserify",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_writable": "readable-stream/writable",
+    "url": "url",
+    "util": "util",
+    "querystring": "query-string"
+  }
+}
