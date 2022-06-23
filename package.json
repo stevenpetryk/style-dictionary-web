@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start-web": "parcel src/index.html",
+    "start-web": "yarn start-node && parcel src/index.html",
     "start-node": "ts-node build-tokens.ts",
     "postinstall": "patch-package"
   },

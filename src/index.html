@@ -15,31 +15,15 @@
         font: inherit;
         margin: 1em;
       }
-
-      .modal-footer {
-        background-color: var(--color-modal-footer-background);
-        padding: 0.5em;
-        border-radius: 10px;
-      }
-
-      .button {
-        background-color: var(--color-button-background-danger);
-        color: var(--color-button-foreground);
-        appearance: none;
-        border: 0;
-        padding: 1em;
-        border-radius: 5px;
-      }
     </style>
   </head>
   <body class="theme-dark">
-    <button onclick="document.body.className='theme-amoled'">Amoled</button>
-    <button onclick="document.body.className='theme-light'">Light</button>
-    <button onclick="document.body.className='theme-dark'">Dark</button>
+    <h1 style="color: var(--color-primary)">Hello world!</h1>
 
-    <div class="modal-footer">
-      <button class="button">Click me</button>
-    </div>
+    <p>
+      This page runs Style Dictionary at runtime. Try updating the
+      `color.primary` token.
+    </p>
 
     <script type="module" src="index.ts"></script>
   </body>
