@@ -30,21 +30,8 @@
     "util": "^0.12.4"
   },
   "alias": {
-    "assert": "assert",
-    "buffer": "buffer",
     "constants": "constants-browserify",
-    "events": "events",
     "fs": "memfs",
-    "path": "path-browserify",
-    "process": "process/browser",
-    "stream": "stream-browserify",
-    "_stream_duplex": "readable-stream/duplex",
-    "_stream_passthrough": "readable-stream/passthrough",
-    "_stream_readable": "readable-stream/readable",
-    "_stream_transform": "readable-stream/transform",
-    "_stream_writable": "readable-stream/writable",
-    "url": "url",
-    "util": "util",
     "querystring": "query-string"
   }
 }
