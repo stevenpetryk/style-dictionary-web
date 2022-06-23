@@ -5,6 +5,7 @@ A really simple example of running Style Dictionary live, in the browser, using 
 The main strategy for getting it to run is the following:
 
 - Alias all Node-specific packages to browser-friendly polyfills
+  - Notably, `memfs` is used to replace `fs` so that we can give Style Dictionary a fake filesystem to work with, and allowing us to extract what was written.
 - Patch Style Dictionary to avoid JSON5 (using `patch-package`)
 
 This felt a lot easier than the [approach](https://backlight.dev/blog/nodejs-in-browser) recommended by the creators of Style-Dictionary-Play, mostly because it doesn't require a fork of Style Dictionary.
